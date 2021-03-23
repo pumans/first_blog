@@ -88,7 +88,22 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Social_networks Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Мы в социальных сетях</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled mb-0">
+                                @inject('social', 'App\Social_for_sidebar')
+                                <div>
+                                    {{$social->get_social()}}
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Side Widget -->
             <div class="card my-4">
                 <h5 class="card-header">Side Widget</h5>
