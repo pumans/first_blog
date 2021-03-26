@@ -33,3 +33,11 @@ Route::delete('/admin/delete_post', 'Admin_post_Controller@delete_post')->name('
 //Редактировать пост
 Route::get('/admin/edit_post/{id}', 'Admin_post_Controller@edit_post')->name('edit_post_get');
 Route::post('/admin/edit_post/{id}', 'Admin_post_Controller@edit_save')->name('edit_post_post');
+//Комментировать
+Route::post('/post/{id}', 'Add_comment_Controller@save_comment')->name('save_comment');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+//Email подписка mail_subscriber
+Route::post('/mail_subscriber', MailSubscriberController::class)->name('mail_subscriber');

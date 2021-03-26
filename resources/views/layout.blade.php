@@ -29,20 +29,36 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
+                <li>
+                    <form action="mail_subscriber" method="post">
+                        <input type="email" name="email">
+                        <input type="submit" value="Подписться">
+                    </form>
+                </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route('index')}}">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('about')}}">About</a>
+                    <a class="nav-link" href="{{route('about')}}">Про нас</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('services')}}">Services</a>
+                    <a class="nav-link" href="{{route('services')}}">Сервис</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('contacts')}}">Contact</a>
+                    <a class="nav-link" href="{{route('contacts')}}">Контакты</a>
                 </li>
+                @if(\Auth::check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('save_post')}}">Администрирование</a>
+                    </li>
+                @endif
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('home')}}">@if(\Auth::check()){{\Auth::user()->name}}
+                            @else Вход @endif</a>
+                    </li>
+
             </ul>
         </div>
     </div>

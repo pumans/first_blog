@@ -14,20 +14,28 @@
                 </ul>
             </div>
         @endif
+
             <form
                 style="display: flex; flex-direction: column; width: 80%"
                 action="add_post" method="post" enctype="multipart/form-data">
                 @csrf
-                {{--}}{{csrf_field()}}--}}
+                @if(\Auth::check())
+
                 <select name="author_id">
                     @foreach($authors as $author)
                         <option value="{{$author->id}}">{{$author->name}}</option>
+                    @endforeach
+                </select>
+                <select multiple="multiple" name="category_id[]" style="margin-top: 20px">
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->category}}</option>
                     @endforeach
                 </select>
                 <input style="margin-top: 20px" type="text" placeholder="заголовок" name="title">
                 <textarea style="height:100px; margin-top: 20px" placeholder="текст новости" name="body"></textarea>
                 <input style=" margin-top: 20px" type="file" name="image">
                 <input style=" margin-top: 20px" type="submit" value="Сохранить">
+                @endif
             </form>
 
 

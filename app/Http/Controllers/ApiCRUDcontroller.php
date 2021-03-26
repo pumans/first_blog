@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
 
 class ApiCRUDcontroller extends Controller
@@ -24,8 +25,6 @@ class ApiCRUDcontroller extends Controller
         $post->title = $request->post('title');
         $post->body = $request->post('body');
         $post->image = $request->post('image');
-        $post->created_at = $request->post('created_at');
-        $post->updated_at = $request->post('updated_at');
         $post->save();
         return response()->json($post, 201);
     }
@@ -36,8 +35,6 @@ class ApiCRUDcontroller extends Controller
         $post->title = $request->post('title');
         $post->body = $request->post('body');
         $post->image = $request->post('image');
-        $post->created_at = $request->post('created_at');
-        $post->updated_at = $request->post('updated_at');
         $post->save();
         return response()->json($post, 200);
     }

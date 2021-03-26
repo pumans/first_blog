@@ -12,4 +12,7 @@ class Post extends Model
     public function category(){
         return $this->belongsToMany(Category::class);
     }
+    public function comment(){
+        return $this->belongsToMany(Comment::class);
+    }
 }

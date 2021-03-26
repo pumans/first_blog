@@ -23,7 +23,8 @@
                         <option @if($author->id == $post->author_id) selected @endif value="{{$author->id}}">{{$author->name}}</option>
                     @endforeach
                 </select>
-                <input type="hidden" name="id" value="">
+
+                <input type="hidden" name="id" value="{{$post->id}}">
                 <input style="margin-top: 20px" type="text" placeholder="заголовок" name="title" value="{{$post->title}}">
                 <textarea style="height:100px; margin-top: 20px" placeholder="текст новости" name="body" >{{$post->body}}</textarea>
                 <input style=" margin-top: 20px" type="file" name="image">

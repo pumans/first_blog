@@ -28,3 +28,4 @@ Route::post('/news', 'ApiCRUDcontroller@create');
 Route::put('/news/{id}', 'ApiCRUDcontroller@redact');
 //удалить новость
 Route::delete('/news/{id}', 'ApiCRUDcontroller@delete');
+
