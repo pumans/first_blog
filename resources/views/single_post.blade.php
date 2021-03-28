@@ -15,7 +15,7 @@
                 <p class="card-text">{{$post->body}}</p>
             </div>
             <div class="card-footer text-muted">
-                Опубликовал {{$post->created_at}}:
+                Опубликовал {{Date::parse($post->created_at)->format('d F Y в H:i')}}:
                 <a href="{{route('posts_by_author', $post->author->key)}}">{{$post->author->name}}</a>
             </div>
             <div class="card-footer text-muted">
@@ -38,7 +38,7 @@
                             {{$user->name}}
                         @endif
                     @endforeach
-                    в {{$comment->created_at}}.
+                    {{Date::parse($comment->created_at)->format('d F Y в H:i')}}.
                 </div>
             @endforeach
         </div>

@@ -16,7 +16,7 @@
                     <a href="{{route('single_post', $post->id)}}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
-                    Опубликовал {{$post->created_at}}:
+                    Опубликовал {{Date::parse($post->created_at)->format('d F Y в H:i')}}:
                     <a href="{{route('posts_by_author', $post->author->key)}}">{{$post->author->name}}</a>
                 </div>
                 <div class="card-footer text-muted">

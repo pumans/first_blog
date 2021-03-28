@@ -23,6 +23,7 @@ class Add_comment_Controller extends Controller
                 $comment->user_id = $request->post('user_id');
 
                 $comment->save();
+                //Костыль!!!
                 $dsn = 'mysql:host=127.0.0.1; dbname=blog';
                 $user = 'mysql';
                 $password = 'mysql';

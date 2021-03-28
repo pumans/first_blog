@@ -16,7 +16,7 @@
                     <a href="{{route('single_post', $post->id)}}" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
-                    Опубликовано {{$post->created_at}}.
+                    Опубликовано {{Date::parse($post->created_at)->format('d F Y в H:i')}}.
                 </div>
                 <div class="card-footer text-muted">
                     Катигории:

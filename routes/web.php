@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Mail;
+
 Route::get('/', IndexController::class)->name('index');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/contacts', 'PagesController@contacts')->name('contacts');
@@ -41,3 +43,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 //Email подписка mail_subscriber
 Route::post('/mail_subscriber', MailSubscriberController::class)->name('mail_subscriber');
+
+//Для рассылок
+Route::get('/send_mail', function (){
+    $mail = new \App\Mail\UserSubscribed();
+    $mail->subject = 'Welcome to the site';
+    Mail::to('pumanmad@gmail.com')->send($mail);
+})->name('send_mail');
